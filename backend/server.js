@@ -14,7 +14,7 @@ connectDB();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5173', 'https://emp-performance-frontend-m902.onrender.com'],
+  origin: function(origin, callback) { return callback(null, true); },
   credentials: true,
 }));
 app.use(express.json());
